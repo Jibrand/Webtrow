@@ -1,8 +1,39 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 
 const Footer = () => {
+  const [email, setemail] = useState('')
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!email) {
+      setMessage("Please enter an email address.");
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setMessage("Thank you for subscribing!");
+        setemail('');
+      } else {
+        setMessage("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      setMessage("Error: " + error.message);
+    }
+  };
   return (
     <>
       <footer className="border-t border-stroke bg-white dark:border-strokedark dark:bg-blacksection">
@@ -29,14 +60,14 @@ const Footer = () => {
                 className="animate_top w-1/2 lg:w-1/4"
               >
                 <a href="index.html" className="relative">
-                  
-                <Image
-              src="/images/logo/WebtrowLogo_TB.png"
-              alt="logo"
-              width={140}
-              height={80}
-              className="   dark:hidden"
-            />
+
+                  <Image
+                    src="/images/logo/WebtrowLogo_TB.png"
+                    alt="logo"
+                    width={140}
+                    height={80}
+                    className="   dark:hidden"
+                  />
                   <Image
                     width={140}
                     height={80}
@@ -47,11 +78,11 @@ const Footer = () => {
                 </a>
 
                 <p className="mb-10 mt-5">
-  Elevate your online presence with our cutting-edge web design solutions. Our team combines creativity with technology to craft stunning and functional websites tailored to your needs. Connect with us and let’s build something extraordinary together.
-</p>
+                  Elevate your online presence with our cutting-edge web design solutions. Our team combines creativity with technology to craft stunning and functional websites tailored to your needs. Connect with us and let’s build something extraordinary together.
+                </p>
 
 
-                
+
               </motion.div>
 
               <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between md:gap-0 lg:w-2/3 xl:w-7/12">
@@ -102,7 +133,7 @@ const Footer = () => {
                         Features
                       </a>
                     </li>
-                    
+
                   </ul>
                 </motion.div>
 
@@ -146,7 +177,7 @@ const Footer = () => {
                       </a>
                     </li>
                     <li>
-                   
+
                     </li>
                     <li>
                       <a
@@ -184,17 +215,19 @@ const Footer = () => {
                     Subscribe to receive future updates
                   </p>
 
-                  <form action="#">
                     <div className="relative">
                       <input
                         type="text"
                         placeholder="Email address"
                         className="w-full rounded-full border border-stroke px-6 py-3 shadow-solid-11 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
+                        value={email}
+                        onChange={(e) => setemail(e.target.value)}
                       />
 
                       <button
                         aria-label="signup to newsletter"
                         className="absolute right-0 p-4 -bottom-[3px]"
+                        onClick={handleSubmit}
                       >
                         <svg
                           className="fill-[#757693] hover:fill-primary dark:fill-white"
@@ -218,7 +251,8 @@ const Footer = () => {
                         </svg>
                       </button>
                     </div>
-                  </form>
+                  {message && <p className="mt-4 ml-10 text-sm text-red-600 dark:text-green-400">{message}</p>}
+
                 </motion.div>
               </div>
             </div>
@@ -330,7 +364,7 @@ const Footer = () => {
                     </svg>
                   </a>
                 </li>
-               
+
                 <li>
                   <a href="#" aria-label="social icon">
                     <svg
@@ -355,7 +389,7 @@ const Footer = () => {
                     </svg>
                   </a>
                 </li>
-              
+
               </ul>
             </motion.div>
           </div>
