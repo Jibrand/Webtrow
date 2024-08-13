@@ -12,8 +12,8 @@ const Integration = () => {
           <SectionHeader
             headerInfo={{
               title: `INTEGRATIONS`,
-              subtitle: `Remotely Maintain Your Data, From Anywhere, Anytime.`,
-              description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
+              subtitle: `Seamless Connections for Your Business.`,
+              description: `Our integrations ensure that your business tools and systems work together effortlessly, enhancing efficiency and productivity. Discover how Webtrow can connect your digital landscape.`,
             }}
           />
 

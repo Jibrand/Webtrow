@@ -29,12 +29,10 @@ const CTA = () => {
               className="animate_left md:w-[70%] lg:w-1/2"
             >
               <h2 className="mb-4 w-11/12 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle4">
-                Join With Us Today & Increase Your Productivity
+                Boost Your Online Presence with Webtrow
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                convallis tortor eros. Donec vitae tortor lacus. Phasellus
-                aliquam ante in maximus.
+                Ready to take your digital strategy to the next level? Schedule a free consultation with our experts to explore how Webtrow can enhance your online presence and drive growth for your business.
               </p>
             </motion.div>
             <motion.div
@@ -60,29 +58,17 @@ const CTA = () => {
                   width={299}
                   height={299}
                   src="/images/shape/shape-06.png"
-                  alt="Saly"
+                  alt="Consultation"
                   className="hidden xl:block"
                 />
-                <a
-                  href="signup.html"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white hover:opacity-90 dark:bg-white dark:text-black"
-                >
-                  Sign up free
-                  <Image
-                    width={20}
-                    height={20}
-                    src="/images/icon/icon-arrow-dark.svg"
-                    alt="Arrow"
-                    className="dark:hidden"
-                  />
-                  <Image
-                    width={20}
-                    height={20}
-                    src="/images/icon/icon-arrow-light.svg"
-                    alt="Arrow"
-                    className="hidden dark:block"
-                  />
-                </a>
+         
+         <a
+  href="schedule-consultation.html" // Update with the actual link to schedule a consultation
+  className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#4A90E2] to-[#081124] px-6 py-3 font-semibold text-white shadow-lg hover:from-[#357ABD] hover:to-[#000000] transition duration-300 ease-in-out transform hover:scale-105 dark:from-[#1E3A8A] dark:to-[#061b14] dark:bg-gradient-to-r dark:hover:from-[#1E3A8A] dark:hover:to-[#3c3d3d]"
+>
+  <span>Schedule Free Consultation</span>
+</a>
+
               </div>
             </motion.div>
           </div>

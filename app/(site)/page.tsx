@@ -14,16 +14,16 @@ import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
-  description: "This is Home for Solid Pro",
-  // other metadata
+  title: "Webtrow - Transforming Your Online Presence to Drive Growth and Success",
+  description: "Webtrow - Boost your sales, enhance your brand, and drive more appointments with our expert website design services. Double your income today with a free consultation.",
 };
 
 export default function Home() {
+  
   return (
     <main>
       <Hero />
-      <Brands />
+      {/* <Brands /> */}
       <Feature />
       <About />
       <FeaturesTab />
@@ -32,9 +32,9 @@ export default function Home() {
       <CTA />
       <FAQ />
       <Testimonial />
-      <Pricing />
+      {/* <Pricing /> */}
       <Contact />
-      <Blog />
+      {/* <Blog /> */}
     </main>
   );
 }
