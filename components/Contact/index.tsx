@@ -32,7 +32,7 @@ const Contact = () => {
     onSubmit: async (values) => {
       try {
         console.log(values);
-        const response = await fetch('http://localhost:3000/api', {
+        const response = await fetch('https://webtrow.vercel.app/api', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
