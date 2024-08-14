@@ -20,7 +20,8 @@ const FeaturesTabItem = ({ featureTab }: { featureTab: FeatureTab }) => {
           <Image
             src={imageDark}
             alt={title}
-            fill
+             height={450}
+             width={453}
             className="hidden dark:block"
           />
         </div>
