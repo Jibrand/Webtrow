@@ -6,6 +6,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast, { Toaster } from 'react-hot-toast';
+import { sendGTMEvent } from '@next/third-parties/google'
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Name is required'),
@@ -32,7 +33,7 @@ const Contact = () => {
     onSubmit: async (values) => {
       try {
         console.log(values);
-        const response = await fetch('https://webtrow.vercel.app/api', {
+        const response = await fetch('  /api', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -221,7 +222,9 @@ const Contact = () => {
                 </div>
 
                 <div className="flex justify-center items-center h-full">
+               
                   <button
+                      
                     aria-label="Schedule Free Consultation"
                     type="submit"
                     className="relative inline-flex items-center justify-center p-4 px-6 py-3 font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-500 rounded-full shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700"

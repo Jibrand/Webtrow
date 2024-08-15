@@ -23,6 +23,7 @@ export default function RootLayout({
             <GoogleTagManager gtmId="G-CM6VB1HSKG" />
 
       <body className={`dark:bg-black ${inter.className}`}>
+        
         <ThemeProvider
           enableSystem={false}
           attribute="class"
