@@ -33,7 +33,7 @@ export async function POST(req) {
         console.error("Error occurred:", error);
         data = { message: "An error occurred while processing the request." };
         success = false;
-    }
+    } 
 
     return NextResponse.json({ result: data, success });
 }
