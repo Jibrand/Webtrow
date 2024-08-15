@@ -4,7 +4,7 @@ export type Author = {
   bio?: string;
   _id?: number | string;
   _ref?: number | string;
-};
+}; 
 
 export type Blog = {
   _id: number;
