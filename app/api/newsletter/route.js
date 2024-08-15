@@ -1,24 +1,33 @@
 import { NextResponse } from "next/server";
 import { sendEmail } from '../sendEmail'
-
-
+import { ConnectionStr } from "@/app/lib/db";
+import { Books } from "@/app/lib/model/book1"
+import mongoose from "mongoose";
 
 export async function POST(req) {
     let success = true;
     let data = {};
 
     try {
+        // Connect to the database
+        await mongoose.connect(ConnectionStr);
+
         // Extract data from the request body
         const body = await req.json();
         console.log(body);
-        // Process the data (e.g., save to a database, send an email, etc.)
-        // For demonstration, we're just returning the data
-        data = body;
-        // const dataemail=data
-        console.log(data);
-        const { email } = data
-     
+
+        // Create a new record using the Mongoose model
+        const newBooking = new Books({
+            email: body.email,
+        });
+
+        // Save the record to the database
+        const savedBooking = await newBooking.save();
+        data = savedBooking;
+
+        // Send an email notification (Optional)
         await sendEmailFunc('New Subscribe Customer from Webtrow', ` email=${email}, `);
+
 
     } catch (error) {
         console.error("Error occurred:", error);

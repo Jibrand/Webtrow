@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import { sendEmail } from './sendEmail'
+import { ConnectionStr } from "@/app/lib/db";
+import { Books } from "@/app/lib/model/book"
+import mongoose from "mongoose";
 
 export async function GET(req) {
     let data = '';
@@ -22,22 +25,33 @@ export async function POST(req) {
     let data = {};
 
     try {
+        // Connect to the database
+        await mongoose.connect(ConnectionStr);
+
         // Extract data from the request body
         const body = await req.json();
         console.log(body);
-        // Process the data (e.g., save to a database, send an email, etc.)
-        // For demonstration, we're just returning the data
-        data = body;
-        // const dataemail=data
-        console.log(data);
-        const { name } = data
-        const { email } = data
-        const { phone } = data
-        const { date } = data
-        const { time } = data
-        const { comments } = data
-        const { timezone } = data
-        await sendEmailFunc('New Customer Sheduled Meeting from Webtrow', `name=${name}, email=${email}, phone=${phone}, time=${time}, comments=${comments},date=${date},timezone=${timezone}`);
+
+        // Create a new record using the Mongoose model
+        const newBooking = new Books({
+            fname: body.name,
+            email: body.email,
+            number: body.phone,
+            date: body.date,
+            time: body.time,
+            timez: body.timezone,
+            comment: body.comments,
+        });
+
+        // Save the record to the database
+        const savedBooking = await newBooking.save();
+        data = savedBooking;
+
+        // Send an email notification (Optional)
+        await sendEmailFunc(
+            'New Customer Scheduled Meeting from Webtrow',
+            `name=${body.name}, email=${body.email}, phone=${body.phone}, time=${body.time}, comments=${body.comments},date=${body.date},timezone=${body.timezone}`
+        );
 
     } catch (error) {
         console.error("Error occurred:", error);
@@ -47,6 +61,10 @@ export async function POST(req) {
 
     return NextResponse.json({ result: data, success });
 }
+
+
+
+ 
 
 const sendEmailFunc = (sub, msg) => {
     try {
