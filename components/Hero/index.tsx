@@ -32,7 +32,6 @@ const Hero = () => {
         </p>
 
         <div className="mt-10">
-          <form onSubmit={handleSubmit}>
             <div className="flex flex-wrap gap-5">
               {/* <input
                 value={email}
@@ -41,16 +40,15 @@ const Hero = () => {
                 placeholder="Enter your email address"
                 className="rounded-full border border-green-600 px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
               /> */}
-           <button
+           <a href="#support" 
   aria-label="Schedule free consultation"
   className="flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-blue-500 to-black px-8 py-3 text-lg font-semibold text-white shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:from-blue-600 hover:via-blue-600 hover:to-black dark:bg-gradient-to-r dark:from-blue-600 dark:via-blue-600 dark:to-black dark:hover:from-blue-700 dark:hover:via-purple-700 dark:hover:to-pink-700"
 >
   📅 Schedule Free Consultation
 
-</button>
+</a>
 
             </div>
-          </form>
 
           <p className="mt-5 text-black dark:text-white">
             Try for free—no credit card required.
