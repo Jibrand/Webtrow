@@ -24,7 +24,11 @@ export default function RootLayout({
             <GoogleTagManager gtmId="G-CM6VB1HSKG" />
 
       <body className={`dark:bg-black ${inter.className}`}>
-      <Script
+      <Script 
+
+
+
+
         id="facebook-pixel"
         strategy="afterInteractive"
       >
@@ -38,7 +42,7 @@ export default function RootLayout({
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1038490524337092');
+          fbq('init', '3671868366419663');
           fbq('track', 'PageView');
         `}
       </Script>
@@ -47,7 +51,7 @@ export default function RootLayout({
           height="1"
           width="1"
           style={{ display: "none" }}
-          src={`https://www.facebook.com/tr?id=1038490524337092&ev=PageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=3671868366419663&ev=PageView&noscript=1`}
         />
       </noscript>
         <ThemeProvider
